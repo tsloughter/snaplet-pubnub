@@ -1,0 +1,34 @@
+Name:                snaplet-pubnub
+Version:             0.1
+Synopsis:            PubNub Snaplet
+Description:         Snaplet for the PubNub Haskell Client
+License:             AllRightsReserved
+Author:              Tristan Sloughter
+Maintainer:          t@crashfast.com
+Stability:           Experimental
+Category:            Web
+Build-type:          Simple
+Cabal-version:       >=1.2
+
+Library
+  hs-source-dirs: src
+
+  Exposed-modules: Snap.Snaplet.PubNub
+
+  Build-depends:
+    base                      >= 4     && < 5,
+    bytestring                >= 0.9.1 && < 0.11,
+    lens                      >= 3.10.2,
+    MonadCatchIO-transformers >= 0.2.1 && < 0.4,
+    mtl                       >= 2     && < 3,
+    text                      >= 0.11.3.1,
+    aeson                     >= 0.7.0.1,
+    async                     >= 2.0.1.4,    
+    snap                      >= 0.11 && < 0.14,
+    pubnub
+
+  if impl(ghc >= 6.12.0)
+    ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
+                 -fno-warn-unused-do-bind
+  else
+    ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
